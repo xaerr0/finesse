@@ -38,6 +38,12 @@ h1, h2, h3, p, dl, dd, figure, ul { margin: 0; }
 ul { padding: 0; list-style: none; }
 
 :focus-visible { outline: 1px solid var(--gold); outline-offset: 4px; }
+.updates :focus-visible { outline-color: var(--plum); }
+::selection { background: var(--gold); color: var(--night); }
+input, textarea { caret-color: var(--gold); }
+.updates input { caret-color: var(--plum); }
+h1, h2, h3 { text-wrap: balance; }
+p { text-wrap: pretty; }
 
 .skip {
   position: absolute; left: 16px; top: -60px; z-index: 10;
@@ -83,7 +89,7 @@ ul { padding: 0; list-style: none; }
 }
 .velvet::after {
   background:
-    repeating-linear-gradient(115deg, transparent 0 9%, rgba(47, 17, 52, .45) 14%, transparent 19%),
+    linear-gradient(115deg, transparent 30%, rgba(47, 17, 52, .5) 48%, transparent 62%),
     radial-gradient(30% 40% at 45% 75%, rgba(140, 79, 160, .35), transparent 70%);
   filter: blur(40px);
   animation-duration: 52s;
@@ -136,7 +142,8 @@ ul { padding: 0; list-style: none; }
   text-decoration: none;
   color: var(--parchment);
   display: inline-block;
-  padding: .55rem .1rem;
+  padding: .6rem .1rem;
+  min-height: 44px;
   background:
     linear-gradient(var(--gold), var(--gold)) no-repeat 50% 85% / 0 1px;
   transition: background-size .35s ease, color .35s ease;
@@ -401,7 +408,7 @@ ul { padding: 0; list-style: none; }
 .contact-list { margin-top: 2.5rem; }
 .contact-list div { padding: .9rem 0; border-top: 1px solid rgba(215, 184, 107, .3); }
 .contact-list dt { font-family: var(--caps); font-weight: 500; color: var(--gold); font-size: 1rem; }
-.contact-list a { text-decoration-color: rgba(215, 184, 107, .5); text-underline-offset: 4px; }
+.contact-list a { display: inline-block; padding: .55rem 0; margin: -.55rem 0; text-decoration-color: rgba(215, 184, 107, .5); text-underline-offset: 4px; }
 .contact-list a:hover { color: var(--gold); }
 
 .contact-form { display: grid; gap: 1.5rem; align-content: start; }
@@ -471,9 +478,9 @@ ul { padding: 0; list-style: none; }
   .rail { grid-auto-columns: 78vw; }
 }
 @media (max-width: 560px) {
-  .frame { --nav-h: 4.5rem; }
+  .frame { --nav-h: 5.5rem; }
   .frame-top ul { gap: 0 1rem; max-width: 15rem; }
-  .frame-top a { font-size: 1rem; padding: .3rem 0; }
+  .frame-top a { font-size: 1rem; padding: .55rem 0; }
   .bamboo { width: 90px; opacity: .35; }
   .flock { right: 8%; top: 6%; }
   .signup-row { flex-direction: column; border-bottom: 0; gap: .75rem; }
