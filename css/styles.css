@@ -228,7 +228,7 @@ ul { padding: 0; list-style: none; }
   transform: translateX(-50%);
   white-space: nowrap;
   font-size: .875rem; font-style: italic;
-  color: rgba(246, 240, 223, .7);
+  color: rgba(246, 240, 223, .9);
 }
 .about-parrot {
   position: absolute;
@@ -372,7 +372,7 @@ ul { padding: 0; list-style: none; }
   background: transparent;
   border: 0;
 }
-.signup input::placeholder { color: #7a6680; }
+.signup input::placeholder { color: #66506d; }
 .signup input:focus-visible { outline: none; }
 .signup-row:focus-within { border-bottom-color: var(--orchid); box-shadow: 0 1px 0 var(--orchid); }
 .signup button {
