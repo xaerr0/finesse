@@ -44,3 +44,7 @@ Images in assets/c/ are stand-ins pulled from Wikimedia Commons; see concept-c/C
 The Redouté and Lear paintings are public domain and could stay on the live site.
 The iris photo (CC BY 2.0) and bamboo watercolours (CC BY 4.0) need their credit kept if used live.
 Bottle photography will replace or sit beside the paintings in The Collection.
+
+## Concept D (concept-d/)
+Same copy placeholders as C. Footage slots: assets/video/hero-dusk.mp4 (wide hero strip) and
+assets/video/velvet.mp4. Uses the same images as C (assets/c/), credits in concept-d/CREDITS.md.
