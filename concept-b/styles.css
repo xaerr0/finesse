@@ -255,19 +255,8 @@ input, textarea { caret-color: var(--gold); }
 .scene-media .sil-scene:not(.sil-scene-back) { aspect-ratio: 200 / 600; }
 #p-bamboo .sil-scene { aspect-ratio: 160 / 600; }
 
-/* Velours has no plant: its scene is a soft fold of light moving across fabric */
-.fold {
-  position: absolute; inset: -20%;
-  background:
-    linear-gradient(118deg, transparent 30%, rgba(140, 79, 160, .45) 44%, rgba(215, 184, 107, .14) 50%, transparent 60%),
-    linear-gradient(64deg, transparent 40%, rgba(18, 5, 26, .55) 52%, transparent 66%);
-  filter: blur(18px);
-  animation: fold 18s ease-in-out infinite alternate;
-}
-@keyframes fold {
-  from { transform: translate3d(-8%, 0, 0) rotate(-2deg); }
-  to   { transform: translate3d(8%, -3%, 0) rotate(3deg); }
-}
+/* Velours has no plant: its scene is the velvet itself */
+.scene-media .velvet { position: absolute; inset: 0; width: 100%; height: 100%; }
 
 .scene-copy {
   display: grid;

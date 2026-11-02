@@ -3,8 +3,8 @@
 
   // ---------- Velvet: a slowly folding cloth rendered in WebGL ----------
   // Stands in for hero footage; real video fades in over it once the file exists.
-  var canvas = document.querySelector('[data-velvet]');
-  var gl = canvas && (canvas.getContext('webgl', { antialias: false, alpha: false }) || canvas.getContext('experimental-webgl'));
+  var initVelvet = function (canvas) {
+  var gl = (canvas.getContext('webgl', { antialias: false, alpha: false }) || canvas.getContext('experimental-webgl'));
   if (gl) {
     var vs = 'attribute vec2 p; void main(){ gl_Position = vec4(p, 0., 1.); }';
     var fs = [
@@ -17,22 +17,22 @@
       'float H(vec2 p){',
       '  float s = t*.03;',
       '  vec2 q = vec2(fbm(p*.8 + vec2(0., s)), fbm(p*.8 + vec2(5.2, 1.3) - s));',
-      '  float d = p.x*1.5 + p.y*.5 + 2.4*q.x;',
-      '  return .6*sin(d*2.4 + s*3.) + .3*sin(d*4.7 - q.y*3.2 + s*2.) + .35*fbm(p*1.3 + 2.*q);',
+      '  float d = p.x*2.1 + p.y*.35 + 1.6*q.x;',
+      '  return .7*sin(d*2.2 + s*3.) + .28*sin(d*4.4 - q.y*2.6 + s*2.) + .18*fbm(p*1.6 + 2.*q);',
       '}',
       'void main(){',
-      '  vec2 uv = gl_FragCoord.xy / r.y;',
-      '  float e = 1.5 / r.y;',
+      '  vec2 uv = gl_FragCoord.xy / r.y * 2.6;',
+      '  float e = 3. / r.y;',
       '  float dx = (H(uv + vec2(e, 0.)) - H(uv - vec2(e, 0.))) / (2.*e);',
       '  float dy = (H(uv + vec2(0., e)) - H(uv - vec2(0., e))) / (2.*e);',
-      '  vec3 n = normalize(vec3(-dx*.12, -dy*.12, 1.));',
+      '  vec3 n = normalize(vec3(-dx*.22, -dy*.22, 1.));',
       '  vec3 l = normalize(vec3(-.55, .5, .68));',
       '  float diff = max(dot(n, l), 0.);',
       '  float rim = pow(1. - n.z, 1.4);',
       '  float spec = pow(max(dot(reflect(-l, n), vec3(0., 0., 1.)), 0.), 22.);',
       '  vec3 night = vec3(.184, .067, .204), plum = vec3(.325, .125, .345), orchid = vec3(.549, .31, .627), gold = vec3(.843, .722, .42);',
-      '  vec3 col = mix(night*.55, plum, smoothstep(.35, 1., diff));',
-      '  col += orchid * rim * .55 + gold * spec * .12;',
+      '  vec3 col = mix(night*.3, plum*1.1, pow(diff, 1.8));',
+      '  col += orchid * pow(rim, 1.2) * .5 * diff + gold * spec * .16;',
       '  vec2 c = gl_FragCoord.xy / r - .5;',
       '  col *= 1. - dot(c, c) * .9;',
       '  gl_FragColor = vec4(col, 1.);',
@@ -68,7 +68,9 @@
         requestAnimationFrame(loop);
       };
       resize();
-      window.addEventListener('resize', function () { resize(); if (reduceMotion) draw(start); });
+      var onResize = function () { resize(); if (reduceMotion) draw(start); };
+      if ('ResizeObserver' in window) new ResizeObserver(onResize).observe(canvas);
+      else window.addEventListener('resize', onResize);
       if (reduceMotion) {
         draw(start);
       } else {
@@ -79,6 +81,8 @@
       }
     }
   }
+  };
+  document.querySelectorAll('[data-velvet]').forEach(initVelvet);
 
   // ---------- Footage slots: load when near view, drop silently if the file is missing ----------
   var startVideo = function (video) {
