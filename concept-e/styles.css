@@ -1,0 +1,196 @@
+/* Finesse by Ines, concept E: maison.
+   After Diptyque and Byredo: centred house header, full-bleed light footage with a small card,
+   and an oval bottle label as the brand device. White ground; each fragrance has its own accent
+   (plum, iris violet, bamboo green, rose) used only on its label and rules. */
+
+:root {
+  --ground: #FBF9F5;
+  --ink: #2a1530;
+  --soft: #5f5163;     /* 7.4:1 on ground */
+  --plum: #532058;
+  --gold: #b8964f;     /* hairlines only on light ground */
+  --rule: rgba(42, 21, 48, .14);
+
+  --display: "Bodoni Moda", "Didot", Georgia, serif;
+  --sans: "Jost", "Futura", "Helvetica Neue", Arial, sans-serif;
+  --gutter: clamp(16px, 5vw, 88px);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: clamp(1rem, .97rem + .15vw, 1.0625rem);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+img, video { display: block; max-width: 100%; }
+a { color: inherit; }
+h1, h2, h3, p, figure, ul { margin: 0; }
+ul { padding: 0; list-style: none; }
+h1, h2, h3 { font-family: var(--display); font-weight: 400; text-wrap: balance; }
+h2 { font-size: clamp(1.9rem, 1.5rem + 1.5vw, 2.6rem); line-height: 1.15; }
+p { text-wrap: pretty; }
+:focus-visible { outline: 1px solid var(--plum); outline-offset: 4px; }
+::selection { background: var(--plum); color: var(--ground); }
+.skip { position: absolute; left: 16px; top: -60px; z-index: 20; padding: .5rem 1rem; background: var(--plum); color: var(--ground); }
+.skip:focus { top: 16px; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+.painting {
+  mix-blend-mode: multiply;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 9%, #000 91%, transparent), linear-gradient(to bottom, transparent, #000 7%, #000 90%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to right, transparent, #000 9%, #000 91%, transparent), linear-gradient(to bottom, transparent, #000 7%, #000 90%, transparent);
+  mask-composite: intersect;
+}
+
+.link {
+  display: inline-flex; align-items: center; min-height: 44px;
+  font-weight: 500; font-size: .9375rem;
+  text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1px;
+  text-decoration-color: var(--gold);
+}
+.link:hover, .link:focus-visible { color: var(--plum); text-decoration-color: currentColor; }
+
+/* ---------- Header: centred, like a house ---------- */
+
+.header { text-align: center; padding: 1.75rem var(--gutter) .75rem; }
+.brand { display: inline-block; }
+.brand img { width: clamp(170px, 17vw, 230px); height: auto; }
+.nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 0 clamp(1.25rem, 3vw, 2.75rem); margin-top: .75rem; }
+.nav a {
+  display: inline-flex; align-items: center; min-height: 44px;
+  font-size: .9375rem; font-weight: 400; text-decoration: none;
+  text-underline-offset: 7px; text-decoration-thickness: 1px;
+}
+.nav a:hover, .nav a:focus-visible { color: var(--plum); text-decoration-line: underline; }
+
+/* ---------- Hero: full-bleed light footage, card bottom-left ---------- */
+
+.hero { position: relative; height: clamp(480px, 78vh, 820px); overflow: hidden; }
+.hero-img, .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.hero-img { animation: drift 36s ease-in-out infinite alternate; transform-origin: 40% 50%; }
+@keyframes drift { from { transform: scale(1.02); } to { transform: scale(1.09) translate(1%, -1%); } }
+.hero-video { opacity: 0; transition: opacity 1.6s ease; }
+.hero-video.is-playing { opacity: 1; }
+.hero-card {
+  position: absolute; left: var(--gutter); bottom: clamp(1.5rem, 5vw, 3.5rem);
+  width: min(26rem, calc(100% - 2 * var(--gutter)));
+  padding: 1.75rem 2rem 1.25rem;
+  background: rgba(251, 249, 245, .94);
+}
+.hero-card h1 { font-size: clamp(1.6rem, 1.3rem + 1vw, 2.1rem); line-height: 1.15; }
+.hero-card p { margin-top: .6rem; color: var(--soft); }
+.hero-card .link { margin-top: .5rem; }
+
+.intro { max-width: 46rem; margin: 0 auto; padding: clamp(4.5rem, 9vw, 7rem) var(--gutter) 0; text-align: center; }
+.intro p { font-family: var(--display); font-size: clamp(1.35rem, 1.1rem + 1vw, 1.9rem); line-height: 1.45; }
+
+/* ---------- Collection: the oval label ---------- */
+
+.collection { padding: clamp(4.5rem, 9vw, 7rem) var(--gutter); max-width: 84rem; margin: 0 auto; }
+.collection > h2 { text-align: center; margin-bottom: clamp(3rem, 6vw, 4.5rem); }
+.labels { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(2rem, 4vw, 3.5rem); }
+.item { text-align: center; }
+.item-art {
+  position: relative;
+  height: clamp(220px, 22vw, 300px);
+  display: flex; align-items: flex-end; justify-content: center;
+}
+.item-art img { max-height: 100%; width: auto; }
+.item:first-child .item-art img { width: 78%; height: 82%; object-fit: cover; }
+
+/* bottle label: an oval with a fine accent rule, the parrot above the name */
+.oval {
+  position: relative;
+  width: min(100%, 13.5rem);
+  aspect-ratio: 1.55;
+  margin: -2.25rem auto 1.5rem;
+  display: grid; place-content: center; justify-items: center; gap: .1rem;
+  background: #fff;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  outline: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  outline-offset: -6px;
+  color: var(--accent);
+}
+.oval img { width: 18px; height: auto; margin-bottom: .2rem; filter: none; opacity: .85; }
+.oval-name { font-family: var(--display); font-size: 1.2rem; line-height: 1.1; }
+.oval-sub { font-size: .75rem; font-style: italic; font-family: var(--display); }
+.item h3 { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.item p { color: var(--soft); }
+.item .notes { margin-top: .75rem; padding-top: .75rem; border-top: 1px solid var(--rule); font-size: .875rem; font-weight: 400; color: var(--ink); }
+.collection-meta { margin-top: 3rem; text-align: center; font-size: .9375rem; color: var(--soft); }
+
+/* ---------- About ---------- */
+
+.about {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(3rem, 7vw, 7rem); align-items: center;
+  max-width: 76rem; margin: 0 auto;
+  padding: clamp(4rem, 8vw, 6rem) var(--gutter);
+  border-top: 1px solid var(--rule);
+}
+.about-art img { width: 100%; height: auto; }
+.about-copy { max-width: 32rem; }
+.about-copy h2 { margin-bottom: 1.25rem; }
+.about-copy p + p { margin-top: 1em; color: var(--soft); }
+.lede { font-family: var(--display); font-size: 1.3rem; line-height: 1.5; }
+
+/* ---------- Updates ---------- */
+
+.updates {
+  text-align: center;
+  padding: clamp(4.5rem, 9vw, 7rem) var(--gutter);
+  background: #f3eef3; /* faint lilac, the only tinted band */
+}
+.updates > p { max-width: 30rem; margin: .9rem auto 0; color: var(--soft); }
+.signup { display: flex; flex-wrap: wrap; justify-content: center; max-width: 30rem; margin: 2rem auto 0; }
+.signup input {
+  flex: 1 1 14rem; min-width: 0;
+  padding: .8rem 0;
+  font: inherit; font-weight: 400; color: var(--ink);
+  background: transparent;
+  border: 0; border-bottom: 1px solid var(--ink); border-radius: 0;
+}
+.signup input::placeholder { color: #75677a; }
+.signup input:focus-visible { outline: none; border-bottom-color: var(--plum); box-shadow: 0 1px 0 var(--plum); }
+.signup button {
+  min-height: 46px; padding: .7rem 1.6rem; margin-left: 1rem;
+  font: inherit; font-weight: 500; font-size: .9375rem;
+  color: var(--ground); background: var(--plum); border: 1px solid var(--plum);
+  cursor: pointer; transition: background-color .25s ease, color .25s ease;
+}
+.signup button:hover, .signup button:focus-visible { background: transparent; color: var(--plum); }
+.form-status { flex-basis: 100%; min-height: 1.7em; margin-top: .75rem; color: var(--plum); }
+
+/* ---------- Footer ---------- */
+
+.footer { max-width: 84rem; margin: 0 auto; padding: clamp(3.5rem, 7vw, 5rem) var(--gutter) 2rem; }
+.footer-cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; }
+.footer h2 { font-size: 1.25rem; margin-bottom: .6rem; }
+.footer p { color: var(--soft); font-size: .9375rem; }
+.footer a { display: inline-block; padding: .6rem 0; margin: -.6rem 0; text-underline-offset: 4px; color: var(--ink); }
+.footer a:hover { color: var(--plum); }
+.footer-base { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 3.5rem; padding-top: 1.5rem; border-top: 1px solid var(--rule); }
+.footer-base img { width: 130px; height: auto; }
+
+@media (max-width: 1000px) { .labels { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 3.5rem; } }
+@media (max-width: 760px) {
+  .about, .footer-cols { grid-template-columns: 1fr; }
+  .about-art { max-width: 24rem; }
+  .hero { height: clamp(440px, 70vh, 620px); }
+}
+@media (max-width: 480px) {
+  .labels { grid-template-columns: 1fr; }
+  .signup button { margin: 1rem 0 0; width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}

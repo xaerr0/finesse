@@ -48,3 +48,10 @@ Bottle photography will replace or sit beside the paintings in The Collection.
 ## Concept D (concept-d/)
 Same copy placeholders as C. Footage slots: assets/video/hero-dusk.mp4 (wide hero strip) and
 assets/video/velvet.mp4. Uses the same images as C (assets/c/), credits in concept-d/CREDITS.md.
+
+## Concepts E, F, G (light base, purple and per-fragrance accents)
+Same copy placeholders. Extra ones: F's four "materials" lines, F's wholesale row, E's visiting details.
+Footage slots: E assets/video/hero-iris-garden.mp4, G assets/video/hero-bamboo.mp4 (both full-bleed, light).
+Accent colours per fragrance (used on labels, names and rules only):
+Velours plum #532058, Iris au Vent violet #6a4b9c / #5d4590, Bamboo Garden green #46603a / #3f5a35, Rose de Nuit rose #9b3b5a / #8f3550.
+Image credits for all light concepts are in /CREDITS.md.
