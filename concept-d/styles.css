@@ -13,7 +13,7 @@
   --gold: #D7B86B;
   --ink: #2F1134;
   --ink-soft: #5b4a5e;   /* on paper, 7.6:1 */
-  --lilac: #e0d3e4;      /* secondary text on night/plum, 8:1+ */
+  --lilac: #ebd1ec;      /* secondary text on night/plum, lilac tinted from the plum hue, 8:1+ */
   --rule-dark: rgba(47, 17, 52, .16);
   --rule-light: rgba(215, 184, 107, .28);
 
