@@ -1,57 +1,40 @@
 # Still needed from Ines
 
-Search the site for `[` to find every bracketed placeholder in the copy.
+Search `index.html` for `[` to find every bracketed placeholder.
 
-## Copy
-- About: her story (2-3 short paragraphs), the parrot's name.
-- Collection: real fragrance names, descriptions and notes. The four on the page
-  (Velours, Iris au Vent, Bamboo Garden, Rose de Nuit) are working names built from
-  the brief's rose / iris / bamboo / velvet themes.
-- Bottle size and price for each.
-- Hero line ("Perfume for slow evenings...") is a draft.
+## Finesse Eau de Parfum
+- Top, heart and base notes (the three panels), and the short story under "The art of the light touch".
+  The current line ("opens clear and bright, blooms into a soft rose and settles on warm amber")
+  was written from the Gemini images, not from Ines.
+- Bottle size and price.
+- Confirm the name: her Instagram bio says "Eau du Parfum"; the site uses the standard "Eau de Parfum".
+- Launch season for the top bar ("The first collection arrives [season]").
+
+## Collection
+- Is Finesse the only fragrance at launch? Velours, Iris au Vent and Bamboo Garden are working
+  names invented for the mock, not hers. If Finesse is the only one, drop the other three cards
+  and the Iris au Vent section.
+- Her email had empty "Collection" and "Get updates" sections; copy for both still to come.
+
+## About
+- Studio city and year started ("[Studio city] · since [year]").
+- Two lines worth checking with her: "...recall memories, and experience particular emotions"
+  (probably "evoke") and "it's noticeable enough as to become an olfactory encounter".
 
 ## Contact details
-- Email (placeholder: hello@finessebyines.com, also in the JSON-LD and mailto link)
-- Instagram handle (placeholder: @finessebyines)
+- Email (placeholder: hello@finessebyines.com)
 - Studio city/state, or remove that row
+- TikTok link in the footer, or remove it
 - Domain (placeholder: finessebyines.com in canonical, og tags, sitemap, robots)
 
 ## Media
-- assets/video/hero-velvet.mp4 and assets/video/about-iris.mp4 (see assets/video/README.md)
-- One product photo per bottle, ideally on a dark or transparent background, to replace
-  the gold bottle outlines in the arches
-- Logo as a vector (SVG/AI/PDF). The current one was traced off the business card mockup
-  and is fine for a mock, but a clean file will be sharper.
-- Name of the logo's script font, so headers can match it exactly (Allura is a stand-in)
+- Real product photography to replace the Gemini hero, product card and note images.
+- Real Instagram posts for the @finessebyines row (currently paintings and stock photos).
+- Logo as a vector (SVG/AI/PDF) for a sharper header.
+- Emeline: the downloaded copy is free for personal use only. Needs a commercial licence before
+  it can be used on the site beyond the logo image.
 
 ## Wiring
-- Get Updates form: connect a mailing list (Mailchimp, Kit, Klaviyo...)
-- Contact form: connect a handler (Formspree or a Cloudflare Worker)
+- Footer email signup: connect a mailing list (Mailchimp, Kit, Klaviyo...).
+- Contact form: connect a handler (Formspree or a Cloudflare Worker).
 - Both forms currently just show a confirmation message without sending anything.
-
-## Concept B (concept-b/)
-Same copy placeholders as above. Its footage slots, all optional (the rendered velvet
-and silhouettes stand in until a file exists):
-- assets/video/hero-velvet.mp4  (shared with concept A)
-- assets/video/about-rose.mp4   (rose opening, tall crop)
-- assets/video/velours.mp4, iris.mp4, bamboo.mp4, rose.mp4  (one scene per fragrance)
-Concept B is marked noindex so search engines only see one version.
-
-## Concept C (concept-c/)
-Same copy placeholders, plus the announcement bar's "[season]".
-Footage slots: assets/video/hero-iris.mp4 (split hero) and assets/video/velvet.mp4 (velvet band).
-Images in assets/c/ are stand-ins pulled from Wikimedia Commons; see concept-c/CREDITS.md.
-The Redouté and Lear paintings are public domain and could stay on the live site.
-The iris photo (CC BY 2.0) and bamboo watercolours (CC BY 4.0) need their credit kept if used live.
-Bottle photography will replace or sit beside the paintings in The Collection.
-
-## Concept D (concept-d/)
-Same copy placeholders as C. Footage slots: assets/video/hero-dusk.mp4 (wide hero strip) and
-assets/video/velvet.mp4. Uses the same images as C (assets/c/), credits in concept-d/CREDITS.md.
-
-## Concepts E, F, G (light base, purple and per-fragrance accents)
-Same copy placeholders. Extra ones: F's four "materials" lines, F's wholesale row, E's visiting details.
-Footage slots: E assets/video/hero-iris-garden.mp4, G assets/video/hero-bamboo.mp4 (both full-bleed, light).
-Accent colours per fragrance (used on labels, names and rules only):
-Velours plum #532058, Iris au Vent violet #6a4b9c / #5d4590, Bamboo Garden green #46603a / #3f5a35, Rose de Nuit rose #9b3b5a / #8f3550.
-Image credits for all light concepts are in /CREDITS.md.

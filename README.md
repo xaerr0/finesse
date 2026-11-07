@@ -1,20 +1,14 @@
-# finesse
+# Finesse by Ines
 
-Mock site for Finesse by Ines, two directions:
+Website mock for Finesse by Ines, built around the launch of Finesse Eau de Parfum.
 
-- `/` Concept A: the business card scaled to the screen (gold frame, script headings, arches).
-- `/concept-c/` Concept C: the herbarium (light paper and beige, eggplant ink, Redouté and
-  Edward Lear paintings, split hero with slow footage). Modelled on evanhealy.com.
-- `/concept-d/` Concept D: evening. Concept C's calm with eggplant and plum sections alternating
-  with paper and beige, gold logo, paintings hung on paper mats on the dark sections.
-- `/concept-e/` Concept E: maison (after Diptyque and Byredo). Centred house header, full-bleed
-  light iris footage with a small card, an oval bottle label per fragrance in its own accent colour.
-- `/concept-f/` Concept F: index (after Le Labo and editorial features). Type-led hero, the collection
-  as a catalogue table with a hover preview pane, a four-up materials row.
-- `/concept-g/` Concept G: chapters (after the cinematic houses, kept light). Bamboo hero fading into
-  paper, one tall chapter per fragrance on a pale tint of its accent, name set huge behind the painting.
-- `/concept-b/` Concept B: velvet and shadow (rendered velvet, swaying bamboo/iris/rose
-  silhouettes, the parrot crossing the page, script only in the logo).
+Layout after ellisbrooklyn.com: full-width bottle hero, product cards, a three-panel story per
+fragrance (top, heart and base notes for Finesse), Ines's About text and brand bio, Instagram row,
+contact form, and a column footer with the email signup.
 
-Plain HTML/CSS/JS, deploys to Cloudflare Pages as-is.
-See PLACEHOLDERS.md for everything still waiting on client content.
+Brand colours: purple `#1E002F` (text, buttons, top bar, footer) and gold `#E1A857` (only on purple),
+on a light paper ground. Type: Jost for headings and text, Playfair Display for the italic lines.
+The logo (Emeline + Playfair) is an image; Emeline is not loaded as a web font (licence pending).
+
+Plain HTML/CSS/JS (`index.html`, `css/styles.css`, `js/main.js`), deploys to Cloudflare as-is.
+See PLACEHOLDERS.md for everything still waiting on client content and CREDITS.md for images.

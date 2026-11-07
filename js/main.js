@@ -1,49 +1,22 @@
 (function () {
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Background videos: only load if the file exists and motion is allowed.
-  // Until real footage is dropped into assets/video/, the CSS velvet stays in place.
-  if (!reduceMotion) {
-    document.querySelectorAll('video[data-src]').forEach(function (video) {
-      var start = function () {
-        video.src = video.dataset.src;
-        video.addEventListener('playing', function () { video.classList.add('is-playing'); }, { once: true });
-        video.addEventListener('error', function () { video.remove(); }, { once: true });
-        video.play().catch(function () {});
-      };
-      if ('IntersectionObserver' in window) {
-        var io = new IntersectionObserver(function (entries) {
-          if (entries[0].isIntersecting) { start(); io.disconnect(); }
-        }, { rootMargin: '200px' });
-        io.observe(video);
-      } else {
-        start();
-      }
-    });
-  }
-
-  // Collection rail arrows
-  var rail = document.querySelector('.rail');
-  var buttons = document.querySelectorAll('.rail-btn');
-  if (rail && buttons.length) {
-    var step = function () {
-      var item = rail.querySelector('.scent');
-      var gap = parseFloat(getComputedStyle(rail).columnGap) || 0;
-      return item ? item.getBoundingClientRect().width + gap : rail.clientWidth;
-    };
-    var update = function () {
-      var max = rail.scrollWidth - rail.clientWidth - 2;
-      buttons[0].disabled = rail.scrollLeft <= 2;
-      buttons[1].disabled = rail.scrollLeft >= max;
-    };
-    buttons.forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        rail.scrollBy({ left: step() * Number(btn.dataset.dir), behavior: reduceMotion ? 'auto' : 'smooth' });
-      });
-    });
-    rail.addEventListener('scroll', update, { passive: true });
-    window.addEventListener('resize', update);
-    update();
+  // Footage slots: load when near view, remove quietly if the file is not there yet.
+  var start = function (video) {
+    if (reduceMotion) return;
+    video.src = video.dataset.src;
+    video.addEventListener('playing', function () { video.classList.add('is-playing'); }, { once: true });
+    video.addEventListener('error', function () { video.remove(); }, { once: true });
+    video.play().catch(function () {});
+  };
+  var videos = document.querySelectorAll('video[data-src]');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { start(e.target); io.unobserve(e.target); } });
+    }, { rootMargin: '200px' });
+    videos.forEach(function (v) { io.observe(v); });
+  } else {
+    videos.forEach(start);
   }
 
   // Demo forms: no backend yet, so confirm locally.
